@@ -11,6 +11,8 @@ import EmailAdressScreen from '@/pages/auth/EmailScreen';
 import CodeVerification from '@/pages/auth/CodeVerification';
 import ForgotPassword from '@/pages/auth/ForgotPassword';
 import CreatePassword from '@/pages/auth/CreatePassword';
+import HomeScreen from '@/pages/HomeScreen';
+import ProfileDetails from '@/pages/home/ProfileDetails';
 
 type AppStackParamList = {
   Splash: undefined;
@@ -23,6 +25,8 @@ type AppStackParamList = {
   Verification: undefined;
   ForgotPassword: undefined;
   CreatePassword: undefined;
+  Home: undefined;
+  ProfileDetails: undefined;
 };
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -57,6 +61,8 @@ export default function App() {
    <Stack.Screen name="Verification" component={CodeVerification} />
    <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
      <Stack.Screen name="CreatePassword" component={CreatePassword} />
+     <Stack.Screen name="Home" component={HomeScreen} />
+     <Stack.Screen name="ProfileDetails" component={ProfileDetails} />
 </Stack.Navigator>
 
 

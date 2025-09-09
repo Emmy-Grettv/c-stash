@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet, StatusBar } from "react-native";
 import { Svg, Path } from "react-native-svg";
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -19,6 +19,7 @@ export default function OnboardingScreen() {
     
     return (
         <View style={styles.container}>
+            <StatusBar barStyle="dark-content" backgroundColor="#fff" />
             {/* Header */}
             <View style={styles.header}>
                 <View style={styles.logo}>

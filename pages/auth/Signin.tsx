@@ -11,6 +11,7 @@ type AppStackParamList = {
   Signin: undefined;
   Signup: undefined;
    ForgotPassword: undefined;
+   Home: undefined;
 };
 
 type SignInScreenNavigationProp = StackNavigationProp<AppStackParamList, 'Signin'>;
@@ -22,6 +23,7 @@ const Signin: React.FC = () => {
 
   const handleSignIn = () => {
     console.log('Sign in with:', { email, password });
+    navigation.navigate('Home');
   };
 
   const handleSocialLogin = (provider: string) => {
