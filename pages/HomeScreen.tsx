@@ -13,24 +13,7 @@ const HomeScreen = () => {
       <Header />
       <ProfileSection />
       <LatestDrops />
-      <Post
-        username="Kenny K Sh*t"
-        time="2h"
-        content="This is the jacket I wore during the spending night of my tour. Tour in Los Angeles has so many crys*tal..."
-        images={['img1', 'img2', 'img3', 'img4']}
-      />
-      <Post
-        username="Wizkid King"
-        time="3h"
-        content="This is the jacket I wore during the spending night of my tour. Tour in Los Angeles has so many crys*tal..."
-        images={['img1', 'img2']}
-      />
-      <Post
-        username="Kenny K Sh*t"
-        time="4h"
-        content="This is the jacket I wore during the spending night of my tour. Tour in Los Angeles has so many crys*tal..."
-        images={['img1', 'img2', 'img3', 'img4']}
-      />
+      <Post />
     </ScrollView>
   )
 }
@@ -42,7 +25,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: width * 0.06,
-    paddingVertical: height * 0.04,
+    paddingVertical: height * 0.04 ,
     fontFamily: 'Poppins',
   },
 })

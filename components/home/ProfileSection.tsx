@@ -1,79 +1,92 @@
-import React from 'react';
-import { View, Text, Image, Dimensions, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import { BottomTabNavigationProp } from '@react-navigation/bottom-tabs';
+import React from "react";
+import {
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-const { width, height } = Dimensions.get('window');
-
-// Define the navigation param list
-type RootTabParamList = {
-  ProfileSection: undefined;
-  ProfileDetail: { profileId: string };
+type AppStackParamList = {
+  ProfileDetails: { story: { id: number; username: string; image: any } };
 };
 
-// Define the navigation prop type
-type ProfileScreenNavigationProp = BottomTabNavigationProp<RootTabParamList, 'ProfileSection'>;
+const { width } = Dimensions.get("window"); // get screen width
 
-const ProfileSection = () => {
-  const navigation = useNavigation<ProfileScreenNavigationProp>();
+// adjust story size relative to screen width
+const STORY_SIZE = width * 0.18; // 18% of screen width
+const BORDER_SIZE = STORY_SIZE + 6;
 
-  const profiles = [
-    { id: '1', name: 'sabanok...', image: require('../../assets/images/story1.png') },
-    { id: '2', name: 'blue_bouy', image: require('../../assets/images/story2.png') },
-    { id: '3', name: 'waggles', image: require('../../assets/images/story3.png') },
-    { id: '4', name: 'steve.loves', image: require('../../assets/images/story3.png') },
-    { id: '5', name: 'steve.loves', image: require('../../assets/images/story4.png') },
-  ];
+const stories = [
+  { id: 1, username: "Kenny k shot", image: require("../../assets/images/storyItem.jpg") },
+  { id: 2, username: "blue_bouy", image: require("../../assets/images/story2.png") },
+  { id: 3, username: "waggles", image: require("../../assets/images/story3.png") },
+  { id: 4, username: "steve.loves", image: require("../../assets/images/story4.png") },
+  { id: 5, username: "steve.loves", image: require("../../assets/images/story1.png") },
+];
 
-  const handleProfilePress = (profileId: string) => {
-    navigation.navigate('ProfileDetail', { profileId }); // Navigate to ProfileDetail tab
-  };
+export default function ProfileSection() {
+  const navigation =
+    useNavigation<StackNavigationProp<AppStackParamList>>();
 
   return (
-    <View style={styles.profileSection}>
-      <Text style={styles.sectionTitle}>My social feed</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.profileImages}>
-        {profiles.map((profile) => (
-          <TouchableOpacity key={profile.id} onPress={() => handleProfilePress(profile.id)}>
-            <Image
-              source={profile.image}
-              style={[styles.profileImage, { width: width * 0.12, height: width * 0.12 }]}
-              resizeMode="cover"
-            />
-            <Text style={styles.profileName}>{profile.name}</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>My social feed</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {stories.map((story) => (
+          <TouchableOpacity
+            key={story.id}
+            style={styles.storyContainer}
+            onPress={() => navigation.navigate("ProfileDetails", { story })}
+          >
+            <View style={styles.imageWrapper}>
+              <Image source={story.image} style={styles.storyImage} />
+            </View>
+            <Text style={styles.storyText} numberOfLines={1}>
+              {story.username}
+            </Text>
           </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
   );
-};
-
-export default ProfileSection;
+}
 
 const styles = StyleSheet.create({
-  profileSection: {
-    marginVertical: height * 0.02,
+  container: {
+    paddingVertical: 6,
+    paddingLeft: 0,
+    backgroundColor: "#fff",
+    flex: 1,
   },
-  sectionTitle: {
-    fontSize: width * 0.045,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: height * 0.01,
+  title: {
+    fontSize: width * 0.05, // responsive font size
+    fontWeight: "bold",
+    marginBottom: 24,
   },
-  profileImages: {
-    flexDirection: 'row',
-    paddingVertical: height * 0.01,
+  storyContainer: {
+    alignItems: "center",
+    marginRight: 12,
   },
-  profileImage: {
-    borderRadius: width * 0.06,
+  imageWrapper: {
     borderWidth: 2,
-    borderColor: '#FF650E',
-    marginRight: width * 0.02,
+    borderColor: "#FF650E",
+    borderRadius: BORDER_SIZE / 2,
+    padding: 2,
   },
-  profileName: {
-    fontSize: width * 0.03,
-    textAlign: 'center',
-    color: '#333',
-    marginTop: height * 0.005,
+  storyImage: {
+    width: STORY_SIZE,
+    height: STORY_SIZE,
+    borderRadius: STORY_SIZE / 2,
+  },
+  storyText: {
+    marginTop: 5,
+    fontSize: width * 0.03, // responsive text size
+    maxWidth: STORY_SIZE + 10,
+    textAlign: "center",
   },
 });
