@@ -37,6 +37,7 @@ const storyImagesMap: Record<string, any> = {
   story4: require("../../assets/images/story4.png"),
 };
 
+
 const ProfileDetails: React.FC<Props> = ({ route, navigation }) => {
   const { story } = route.params;
 

@@ -12,6 +12,9 @@ import {
   ScrollView,
 } from 'react-native';
 
+import { useNavigation } from "@react-navigation/native";
+import type { StackNavigationProp } from "@react-navigation/stack";
+
 const { width } = Dimensions.get('window');
 const horizontalPadding = 24;
 const imageSpacing = 12;
@@ -78,7 +81,12 @@ const PostCard: React.FC<PostCardProps> = ({
   const handleLike = () => setIsLiked(!isLiked);
   const closeModal = () => setIsModalVisible(false);
 
+ const navigation = useNavigation<StackNavigationProp<any>>();
+
+ const handleDetails = () => navigation.navigate("ProductDetails");
+
   return (
+    <TouchableOpacity activeOpacity={0.9} onPress={handleDetails}>
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
@@ -201,6 +209,7 @@ const PostCard: React.FC<PostCardProps> = ({
         </View>
       </Modal>
     </View>
+     </TouchableOpacity>
   );
 };
 

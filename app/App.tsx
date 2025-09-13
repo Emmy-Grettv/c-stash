@@ -13,6 +13,8 @@ import ForgotPassword from '@/pages/auth/ForgotPassword';
 import CreatePassword from '@/pages/auth/CreatePassword';
 import HomeScreen from '@/pages/HomeScreen';
 import ProfileDetails from '@/pages/home/ProfileDetails';
+import ProductDetails from '@/pages/product/ProductDetails';
+import ProductReviews from '@/pages/product/ProductReviews';
 
 type AppStackParamList = {
   Splash: undefined;
@@ -26,7 +28,9 @@ type AppStackParamList = {
   ForgotPassword: undefined;
   CreatePassword: undefined;
   Home: undefined;
-  ProfileDetails: undefined;
+   ProfileDetails: { story: { username: string; time: string; image: any } };
+  ProductDetails: undefined;
+  ProductReviews: undefined;
 };
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -63,6 +67,8 @@ export default function App() {
      <Stack.Screen name="CreatePassword" component={CreatePassword} />
      <Stack.Screen name="Home" component={HomeScreen} />
      <Stack.Screen name="ProfileDetails" component={ProfileDetails} />
+     <Stack.Screen name="ProductDetails" component={ProductDetails} />
+     <Stack.Screen name="ProductRevie" component={ProductReviews} />
 </Stack.Navigator>
 
 
