@@ -15,6 +15,10 @@ import HomeScreen from '@/pages/HomeScreen';
 import ProfileDetails from '@/pages/home/ProfileDetails';
 import ProductDetails from '@/pages/product/ProductDetails';
 import ProductReviews from '@/pages/product/ProductReviews';
+import Cart from '@/pages/cart/CartScreen';
+import ActivePage from '@/pages/cart/ActivePage';
+import CompletePage from '@/pages/cart/CompletePage';
+import CheckoutScreen from '@/pages/cart/CheckoutScreen';
 
 type AppStackParamList = {
   Splash: undefined;
@@ -31,6 +35,10 @@ type AppStackParamList = {
    ProfileDetails: { story: { username: string; time: string; image: any } };
   ProductDetails: undefined;
   ProductReviews: undefined;
+  CartScreen: undefined;
+  ActivePage: undefined;
+  CompletePage: undefined;
+  CheckoutScreen: undefined
 };
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -69,6 +77,10 @@ export default function App() {
      <Stack.Screen name="ProfileDetails" component={ProfileDetails} />
      <Stack.Screen name="ProductDetails" component={ProductDetails} />
      <Stack.Screen name="ProductReviews" component={ProductReviews} />
+     <Stack.Screen name="CartScreen" component={Cart} />
+     <Stack.Screen name="ActivePage" component={ActivePage} />
+     <Stack.Screen name="CompletePage" component={CompletePage} />
+     <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
 </Stack.Navigator>
 
 

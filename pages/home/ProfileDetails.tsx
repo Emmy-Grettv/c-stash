@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  StatusBar
 } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RouteProp } from "@react-navigation/native";
@@ -63,6 +64,7 @@ const ProfileDetails: React.FC<Props> = ({ route, navigation }) => {
   return (
     <View style={styles.container}>
       {/* Story Background */}
+       <StatusBar backgroundColor="#000000" barStyle="dark-content" />
       <Image source={story.image} style={styles.storyImage} />
 
       {/* Top bar */}
