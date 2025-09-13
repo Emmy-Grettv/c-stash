@@ -68,7 +68,7 @@ export default function App() {
      <Stack.Screen name="Home" component={HomeScreen} />
      <Stack.Screen name="ProfileDetails" component={ProfileDetails} />
      <Stack.Screen name="ProductDetails" component={ProductDetails} />
-     <Stack.Screen name="ProductRevie" component={ProductReviews} />
+     <Stack.Screen name="ProductReviews" component={ProductReviews} />
 </Stack.Navigator>
 
 
