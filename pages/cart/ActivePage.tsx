@@ -13,7 +13,7 @@ const ActivePage = () => {
   const [cartQuantity, setCartQuantity] = useState(1);
   const [cartItems, setCartItems] = useState([{ id: 1, title: "Kendrick's Jacket on Tour" }]); 
 
-  const handleTrackOrder = () => console.log('Tracking order...');
+  const handleTrackOrder = () => navigation.navigate('TrackOrder');
   const handleDecrease = () => { if (cartQuantity > 1) setCartQuantity(cartQuantity - 1); };
   const handleIncrease = () => setCartQuantity(cartQuantity + 1);
   const handleRemove = () => setCartItems(prev => prev.filter(item => item.id !== 1));
