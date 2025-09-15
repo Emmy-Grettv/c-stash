@@ -1,20 +1,25 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, StatusBar } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, StatusBar, ScrollView } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import CheckoutCard from '@/components/cart/CheckoutCard';
 import ShippingCard from '@/components/cart/ShippingCard';
+import PromoCode from '@/components/cart/PromoCode';
+import MainButton from '@/components/buttons/Mainbutton';
+
 
 const { width, height } = Dimensions.get('window');
 
 const CheckoutScreen = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<any>>();
   const handleTrackOrder = () => console.log('Tracking order...');
+  const handlePayment = ()  => navigation.navigate('PaymentMethods')
 
   return (
     <View style={styles.container}>
-        
-<StatusBar barStyle="dark-content" backgroundColor="#000" />
+      <StatusBar barStyle="dark-content" backgroundColor="#000" />
+
       {/* Header */}
       <View style={styles.headerOverlay}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.iconButton}>
@@ -25,7 +30,13 @@ const CheckoutScreen = () => {
 
         <View style={styles.iconButton} />
       </View>
-       <CheckoutCard
+
+      {/* Scrollable Content */}
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: height * 0.05 }} // adds space at bottom
+      >
+        <CheckoutCard
           imageSource={require('../../assets/images/cart/order2.png')}
           title="Kendric's Jacket on Tour"
           subtitle="Kendric Lamar"
@@ -34,9 +45,21 @@ const CheckoutScreen = () => {
           buttonText="1"
           onButtonPress={handleTrackOrder}
           buttonStyle={{ backgroundColor: '#8F959E57'}}
-          buttonTextStyle={{color: '#000'  }}
+          buttonTextStyle={{color: '#000' }}
         />
         <ShippingCard />
+        <PromoCode />
+        <MainButton
+          total=""
+          label="Continue to Payment"
+          arrow={'\u2192'}
+          onPress={handlePayment}
+          buttonStyle={{ backgroundColor: '#FF650E' }} 
+          totalStyle={{ fontSize: 20 }} 
+          labelStyle={{ fontWeight: 'bold' }} 
+          arrowStyle={{ fontSize: 24 }} 
+        />
+      </ScrollView>
     </View>
   );
 };
@@ -61,32 +84,6 @@ const styles = StyleSheet.create({
   },
   iconButton: {
     padding: width * 0.015,
-  },
-  tabs: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: height * 0.02,
-    borderBottomWidth: 2,
-    borderColor: '#eee',
-  },
-  tabButton: {
-    flex: 1,
-    alignItems: 'center',
-    paddingVertical: height * 0.015,
-    borderBottomWidth: height * 0.005, // relative thickness for bottom border
-    borderBottomColor: 'transparent', // default hidden
-  },
-  activeTabBorder: {
-    borderBottomColor: '#ff6600', // orange bottom border for active tab
-  },
-  activeTabText: {
-    color: '#000', // black for active tab
-    fontWeight: 'bold',
-    fontSize: width * 0.045,
-  },
-  inactiveTabText: {
-    color: '#8F959E', // grey color for inactive tab
-    fontSize: width * 0.045,
   },
 });
 

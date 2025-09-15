@@ -19,6 +19,8 @@ import Cart from '@/pages/cart/CartScreen';
 import ActivePage from '@/pages/cart/ActivePage';
 import CompletePage from '@/pages/cart/CompletePage';
 import CheckoutScreen from '@/pages/cart/CheckoutScreen';
+import PaymentMethods from '@/pages/payment/PaymentMethods';
+import PinEntry from '@/pages/payment/PaymentConfirmation';
 
 type AppStackParamList = {
   Splash: undefined;
@@ -38,7 +40,9 @@ type AppStackParamList = {
   CartScreen: undefined;
   ActivePage: undefined;
   CompletePage: undefined;
-  CheckoutScreen: undefined
+  CheckoutScreen: undefined;
+  PaymentMethods: undefined;
+  PinEntry: undefined;
 };
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -81,6 +85,8 @@ export default function App() {
      <Stack.Screen name="ActivePage" component={ActivePage} />
      <Stack.Screen name="CompletePage" component={CompletePage} />
      <Stack.Screen name="CheckoutScreen" component={CheckoutScreen} />
+     <Stack.Screen name="PaymentMethods" component={PaymentMethods} />
+      <Stack.Screen name="PinEntry" component={PinEntry} />
 </Stack.Navigator>
 
 

@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     alignItems: 'flex-start',
     overflow: 'hidden',
-    marginBottom: 20,
+    marginBottom: 40,
     minHeight: screenHeight * 0.1, // ensures enough height for image
   },
   image: {
