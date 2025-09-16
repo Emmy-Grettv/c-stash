@@ -22,6 +22,9 @@ import CheckoutScreen from '@/pages/cart/CheckoutScreen';
 import PaymentMethods from '@/pages/payment/PaymentMethods';
 import PinEntry from '@/pages/payment/PaymentConfirmation';
 import TrackOrder from '@/pages/product/TrackOrder';
+import EwalletScreen from '@/pages/wallet/WalletScreen';
+import TransactionsSearch from '@/pages/wallet/TransactionHistory';
+import TransactionsDetails from '@/pages/wallet/TransactionDetails';
 
 type AppStackParamList = {
   Splash: undefined;
@@ -45,6 +48,9 @@ type AppStackParamList = {
   PaymentMethods: undefined;
   PinEntry: undefined;
   TrackOrder: undefined;
+  Ewallet: undefined;
+  TransactionSearch: undefined;
+  TransactionDetails: undefined;
 };
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -90,6 +96,9 @@ export default function App() {
      <Stack.Screen name="PaymentMethods" component={PaymentMethods} />
       <Stack.Screen name="PinEntry" component={PinEntry} />
       <Stack.Screen name="TrackOrder" component={TrackOrder} />
+       <Stack.Screen name="Ewallet" component={EwalletScreen} />
+        <Stack.Screen name="TransactionSearch" component={TransactionsSearch} />
+        <Stack.Screen name="TransactionDetails" component={TransactionsDetails} />
 </Stack.Navigator>
 
 

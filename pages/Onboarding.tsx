@@ -9,6 +9,7 @@ type AppStackParamList = {
   OnBoarding: undefined;
   Signin: undefined;
   Signup: undefined;
+  Ewallet: undefined;
 };
 
 
@@ -61,7 +62,7 @@ export default function OnboardingScreen() {
                 </Text>
                  <TouchableOpacity
                     style={styles.getStartedBtn}
-                    onPress={() => navigation.navigate("Signin")} // <-- your next screen
+                    onPress={() => navigation.navigate("Ewallet")} // <-- your next screen
                 >
                     <Text style={styles.getStartedText}>Get Started</Text>
                 </TouchableOpacity>

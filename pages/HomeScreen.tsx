@@ -4,13 +4,21 @@ import Post from '@/components/home/Post';
 import ProfileSection from '@/components/home/ProfileSection';
 import React from 'react'
 import { ScrollView, StyleSheet, Dimensions } from 'react-native'
+import { useNavigation } from "@react-navigation/native"; 
+import type { StackNavigationProp } from "@react-navigation/stack";
 
 const { width, height } = Dimensions.get('window');
 
 const HomeScreen = () => {
+
+  const navigation = useNavigation<StackNavigationProp<any>>(); 
+
   return (
     <ScrollView style={styles.container}>
-      <Header />
+      <Header 
+  title="Home" 
+  onRightPress={() => navigation.navigate('CartScreen')} 
+/>
       <ProfileSection />
       <LatestDrops />
       <Post />
