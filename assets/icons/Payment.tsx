@@ -1,5 +1,5 @@
 import React from "react";
-import Svg, { G, Path, Defs, ClipPath, Rect } from "react-native-svg";
+import Svg, { G, Path, Defs, ClipPath, Rect, Circle } from "react-native-svg";
 
 // PayPal Icon
 export const PayPalIcon = () => (
@@ -277,3 +277,41 @@ export const ProfileIcon = ({ size = 25, color = "#1D1E20" }) => (
     />
   </Svg>
 );
+
+export const MessageIcon = () => {
+  return (
+    <Svg width={85} height={85} viewBox="0 0 85 85" fill="none">
+      <G filter="url(#filter0_d)">
+        <Circle cx={42.5} cy={41.5} r={22.5} fill="white" fillOpacity={0.5} />
+        <Path
+          d="M33.464 46.828C32 45.657 32 44.771 32 41C32 37.229 32 35.343 33.464 34.172C34.93 33 37.286 33 42 33C46.714 33 49.071 33 50.535 34.172C51.999 35.344 52 37.229 52 41C52 44.771 52 45.657 50.535 46.828C49.072 48 46.714 48 42 48C39.49 48 38.2 49.738 36 51V47.788C34.906 47.625 34.101 47.338 33.464 46.828Z"
+          stroke="black"
+          strokeWidth={1.5}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </G>
+    </Svg>
+  );
+};
+
+export const NotificationIcon = () => {
+  return (
+      <Svg width={85} height={85} viewBox="0 0 85 85" fill="none">
+        <G>
+          <Circle cx={42.5} cy={41.5} r={22.5} fill="white" fillOpacity={0.5} />
+          <Path
+            d="M48.7501 38.71V38.005C48.7501 34.136 45.7261 31 42.0001 31C38.2741 31 35.2501 34.136 35.2501 38.005V38.71C35.2513 39.5516 35.0111 40.3758 34.5581 41.085L33.4501 42.81C32.4391 44.385 33.2111 46.526 34.9701 47.024C39.5664 48.3257 44.4338 48.3257 49.0301 47.024C50.7891 46.526 51.5611 44.385 50.5501 42.811L49.4421 41.086C48.9887 40.3769 48.7482 39.5527 48.7491 38.711L48.7501 38.71Z"
+            stroke="black"
+            strokeWidth={1.5}
+          />
+          <Path
+            d="M37.5 48C38.155 49.748 39.922 51 42 51C44.078 51 45.845 49.748 46.5 48"
+            stroke="black"
+            strokeWidth={1.5}
+            strokeLinecap="round"
+          />
+        </G>
+      </Svg>
+  );
+};

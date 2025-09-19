@@ -27,6 +27,8 @@ import TransactionsSearch from '@/pages/wallet/TransactionHistory';
 import TransactionsDetails from '@/pages/wallet/TransactionDetails';
 import TopUpScreen from '@/pages/wallet/TopupWallet';
 import TopupPinEntry from '@/pages/wallet/TopupConfirmation';
+import Messages from '@/pages/message/Messages';
+import Notifications from '@/pages/message/Notifications';
 
 type AppStackParamList = {
   Splash: undefined;
@@ -55,6 +57,8 @@ type AppStackParamList = {
   TransactionDetails: undefined;
   TopupWallet: undefined;
   TopupConfirmation: undefined;
+  Messages: undefined;
+  Notifications: undefined;
 };
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -105,6 +109,8 @@ export default function App() {
         <Stack.Screen name="TransactionDetails" component={TransactionsDetails} />
          <Stack.Screen name="TopupWallet" component={TopUpScreen} />
           <Stack.Screen name="TopupConfirmation" component={TopupPinEntry} />
+           <Stack.Screen name="Messages" component={Messages} />
+          <Stack.Screen name="Notifications" component={Notifications} />
 </Stack.Navigator>
 
 
