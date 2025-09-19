@@ -4,6 +4,7 @@ import ActivePage from './ActivePage';
 import CompletePage from './CompletePage';
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import TabBar from '@/components/Tabbar';
 
 const { width, height } = Dimensions.get('window');
 
@@ -17,6 +18,7 @@ const Cart = () => {
   };
 
   return (
+    <>
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.headerOverlay}>
@@ -52,7 +54,12 @@ const Cart = () => {
 
       {/* Tab Content */}
       {renderContent()}
+     
     </View>
+     <View style={styles.tabBarContainer}>
+             <TabBar />
+           </View>
+    </>
   );
 };
 
@@ -60,7 +67,8 @@ const styles = StyleSheet.create({
   container: { 
     flex: 1,
     paddingHorizontal: width * 0.06,
-    paddingVertical: height * 0.04,
+    paddingTop: height * 0.04,
+    paddingBottom: height * 0.09,
     backgroundColor: '#f5f8faff',
   },
   headerOverlay: {
@@ -102,6 +110,17 @@ const styles = StyleSheet.create({
   inactiveTabText: {
     color: '#8F959E', // grey color for inactive tab
     fontSize: width * 0.045,
+  },
+  tabBarContainer: {
+    position: 'absolute',
+    bottom: -12,
+    left: 0,
+    right: 0,
+    paddingHorizontal: width * 0.01,
+    paddingVertical: height * 0.015,
+    backgroundColor: 'transparent', // Transparent or semi-transparent
+    marginHorizontal: 10,
+    borderRadius: 50
   },
 });
 
