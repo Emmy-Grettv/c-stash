@@ -7,15 +7,11 @@ import TribesList from '@/components/Profile/TribesList';
 import UserInfo from '@/components/Profile/UserInfor';
 import TabBar from '@/components/Tabbar';
 import React from 'react';
-import { ScrollView, StyleSheet, Alert, StatusBar, View, Dimensions } from 'react-native';
+import { ScrollView, StyleSheet,  StatusBar, View, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
 const MyProfile = () => {
-  const handleEditPress = () => {
-    Alert.alert("Edit profile pressed!");
-  };
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#fff" />
@@ -27,7 +23,6 @@ const MyProfile = () => {
           name="@Emmy Gretta"
           email="emmy@example.com"
           bio="I am a positive person. I love to travel and eat. Always available for chat"
-          onEditPress={handleEditPress}
         />
         <MateCard />
         <StatsRow />
