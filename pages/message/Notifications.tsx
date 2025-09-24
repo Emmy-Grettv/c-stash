@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, SectionList , Dimensions, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, SectionList , Dimensions, TouchableOpacity, StatusBar } from 'react-native';
 import NotificationItem from '@/components/messages/NotificationItem';
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
@@ -110,6 +110,7 @@ const Notifications: React.FC = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar barStyle="dark-content" backgroundColor="#000" />
       <SectionList
         sections={groupedNotifications}
         keyExtractor={(item) => item.id}

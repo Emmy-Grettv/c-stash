@@ -17,7 +17,7 @@ type RootStackParamList = {
   Home: undefined;
   CartScreen: undefined;
   Ewallet: undefined;
-  Profile: undefined;
+ MyProfile: undefined;
 };
 
 type TabBarNavigationProp = StackNavigationProp<RootStackParamList>;
@@ -63,12 +63,12 @@ export default function TabBar() {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => handlePress("Profile")}>
-        <View style={[styles.tab, activeTab === "Profile" && styles.activeTab]}>
+      <TouchableOpacity onPress={() => handlePress("MyProfile")}>
+        <View style={[styles.tab, activeTab === "MyProfile" && styles.activeTab]}>
           <View style={styles.iconContainer}>
-            {activeTab === "Profile" ? <ActiveProfile /> : <ProfileIcon size={25} />}
+            {activeTab === "MyProfile" ? <ActiveProfile /> : <ProfileIcon size={25} />}
           </View>
-          {activeTab === "Profile" && <Text style={styles.tabText}>Profile</Text>}
+          {activeTab === "MyProfile" && <Text style={styles.tabText}>Profile</Text>}
         </View>
       </TouchableOpacity>
     </View>
