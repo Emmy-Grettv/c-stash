@@ -1,5 +1,5 @@
 import React from "react";
-import Svg, { G, Path, Defs, ClipPath, Rect, Circle, Line } from "react-native-svg";
+import Svg, { G, Path, Defs, ClipPath, Rect, Circle } from "react-native-svg";
 
 // PayPal Icon
 export const PayPalIcon = () => (
