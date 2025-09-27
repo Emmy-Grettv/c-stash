@@ -1,5 +1,5 @@
 // EditProfile.tsx
-import React from "react";
+import React, { useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -12,12 +12,19 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import AddressSelector from "@/components/Profile/AddressSelector";
+import SwitchToggle from "@/components/Profile/SwitchToggle";
 
 const { width, height } = Dimensions.get("window");
 
-const Address = () => {
+const NotificationScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
+
+const [notificationStatus, setNotificationStatus] = useState(false);
+
+  const handleToggle = (value: boolean) => {
+    setNotificationStatus(value);
+    console.log('Notification toggled to:', value);
+  };
 
   return (
     <View style={styles.container}>
@@ -31,13 +38,15 @@ const Address = () => {
             </TouchableOpacity>
 
             <Text style={[styles.headerTitle, { fontSize: width * 0.045 }]}>
-              Address
+              Notifications
             </Text>
 
             <View style={styles.iconButton} />
           </View>
-          <AddressSelector />
-
+        <SwitchToggle
+        initialValue={notificationStatus}
+        onValueChange={handleToggle}
+      />
        
       </ScrollView>
     </View>
@@ -62,12 +71,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: { color: "#000", fontWeight: "bold" },
   iconButton: {},
-  field: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 15,
-  },
   
 });
 
-export default Address;
+export default NotificationScreen;

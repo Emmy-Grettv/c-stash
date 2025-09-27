@@ -34,6 +34,10 @@ import SettingsScreen from '@/pages/profile/Settings';
 import EditProfile from '@/pages/profile/EditProfile';
 import FieldEdit from '@/pages/profile/FieldEdit';
 import Address from '@/pages/profile/Address';
+import AddAddressForm from '@/pages/profile/AddAddressScreen';
+import NotificationScreen from '@/pages/profile/Notifications';
+import Security from '@/pages/profile/Security';
+import Wallet from '@/pages/profile/Wallet';
 
 type AppStackParamList = {
   Splash: undefined;
@@ -69,6 +73,10 @@ type AppStackParamList = {
   EditProfile: undefined;
   FieldEdit: undefined;
   AddressSetting:  undefined;
+  AddAddress: undefined;
+  NotificationSettings: undefined;
+  Security: undefined;
+  Wallet: undefined;
 };
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -126,6 +134,10 @@ export default function App() {
            <Stack.Screen name="EditProfile" component={EditProfile} />
            <Stack.Screen name="FieldEdit" component={FieldEdit} />
            <Stack.Screen name="AddressSetting" component={Address} />
+           <Stack.Screen name="AddAddress" component={AddAddressForm} />
+           <Stack.Screen name="NotificationSettings" component={NotificationScreen} />
+            <Stack.Screen name="Security" component={Security} />
+             <Stack.Screen name="Wallet" component={Wallet} />
 </Stack.Navigator>
 
 

@@ -45,12 +45,12 @@ const navigation = useNavigation<StackNavigationProp<any>>();
       <MenuItem
         icon={<Notifications />}
         title="Notification"
-        onPress={() => handlePress("Notification")}
+        onPress={() => handlePress("NotificationSettings")}
       />
       <MenuItem
         icon={<WalletIcon />}
         title="My Wallet"
-        onPress={() => handlePress("My Wallet")}
+        onPress={() => handlePress("Wallet")}
       />
       <MenuItem
         icon={<Security />}

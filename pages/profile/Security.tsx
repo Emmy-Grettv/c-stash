@@ -12,11 +12,11 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import AddressSelector from "@/components/Profile/AddressSelector";
+import { Continue } from "@/assets/icons/Settings";
 
 const { width, height } = Dimensions.get("window");
 
-const Address = () => {
+const Security = () => {
   const navigation = useNavigation<StackNavigationProp<any>>();
 
   return (
@@ -31,12 +31,15 @@ const Address = () => {
             </TouchableOpacity>
 
             <Text style={[styles.headerTitle, { fontSize: width * 0.045 }]}>
-              Address
+              Security
             </Text>
 
             <View style={styles.iconButton} />
           </View>
-          <AddressSelector />
+          <View style={styles.containerized}>
+                <Text style={styles.label}>Secure account</Text>
+               <Continue />
+             </View>
 
        
       </ScrollView>
@@ -51,7 +54,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: width * 0.06,
     paddingVertical: height * 0.04, 
 },
-  containerized: { paddingHorizontal: width * 0.06, paddingTop: height * 0.03, paddingBottom: height * 0.02 },
   scrollContent: {},
   headerOverlay: {
     height: height * 0.07,
@@ -62,12 +64,18 @@ const styles = StyleSheet.create({
   },
   headerTitle: { color: "#000", fontWeight: "bold" },
   iconButton: {},
-  field: {
+containerized: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 15,
+    justifyContent: "space-between",
+    padding: 10,
+  },
+  label: {
+    fontSize: 16,
+    color: "#000",
+    fontWeight: "bold",
   },
   
 });
 
-export default Address;
+export default Security;
