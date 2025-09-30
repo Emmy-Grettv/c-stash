@@ -38,6 +38,7 @@ import AddAddressForm from '@/pages/profile/AddAddressScreen';
 import NotificationScreen from '@/pages/profile/Notifications';
 import Security from '@/pages/profile/Security';
 import Wallet from '@/pages/profile/Wallet';
+import CreatePostScreen from '@/pages/Artist/profile/AddPost';
 
 type AppStackParamList = {
   Splash: undefined;
@@ -77,6 +78,7 @@ type AppStackParamList = {
   NotificationSettings: undefined;
   Security: undefined;
   Wallet: undefined;
+  CreatePost: undefined;
 };
 
 const Stack = createStackNavigator<AppStackParamList>();
@@ -138,6 +140,7 @@ export default function App() {
            <Stack.Screen name="NotificationSettings" component={NotificationScreen} />
             <Stack.Screen name="Security" component={Security} />
              <Stack.Screen name="Wallet" component={Wallet} />
+             <Stack.Screen name="CreatePost" component={CreatePostScreen} />
 </Stack.Navigator>
 
 

@@ -14,7 +14,7 @@ const HomeScreen = () => {
   const navigation = useNavigation<StackNavigationProp<any>>(); 
 
   const handleChatPress = () => {
-    navigation.navigate('Messages')
+    navigation.navigate('CreatePost')
     console.log('Navigating to chat');
   };
 
